@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evaluación – Traslado de Ubicaciones por RF</title>
+<title>Evaluación – Almacenamiento de Mercancía</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -26,10 +26,7 @@
   .score-bar-label{font-size:13px;color:var(--muted);flex:1}
   .score-pills{display:flex;gap:8px;flex-wrap:wrap}
   .pill{font-size:12px;font-weight:500;padding:4px 12px;border-radius:20px}
-  .pill-total{background:var(--gray-1);color:var(--gray-4)}
-  .pill-correct{background:var(--green-lt);color:var(--green)}
-  .pill-wrong{background:var(--red-lt);color:var(--red)}
-  .pill-pct{background:var(--blue-lt);color:var(--blue-dk)}
+  .pill-total{background:var(--gray-1);color:var(--gray-4)}.pill-correct{background:var(--green-lt);color:var(--green)}.pill-wrong{background:var(--red-lt);color:var(--red)}.pill-pct{background:var(--blue-lt);color:var(--blue-dk)}
   .block{margin-bottom:2rem}
   .block-header{display:flex;align-items:center;gap:10px;margin-bottom:.8rem}
   .block-num{width:28px;height:28px;border-radius:50%;background:var(--gray-5);color:white;font-size:12px;font-weight:600;display:flex;align-items:center;justify-content:center;flex-shrink:0}
@@ -49,32 +46,19 @@
   .opt input[type=radio]{display:none}
   .opt-letter{width:20px;height:20px;border-radius:50%;border:1px solid var(--gray-2);font-size:10px;font-weight:600;color:var(--muted);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;transition:all .12s}
   .opt-text{font-size:13px;color:var(--text);line-height:1.4}
-  .opt.picked-correct{background:var(--green-lt);border-color:#97C459}
-  .opt.picked-correct .opt-letter{background:var(--green);border-color:var(--green);color:white}
-  .opt.wrong{background:var(--red-lt);border-color:#F09595}
-  .opt.wrong .opt-letter{background:var(--red);border-color:var(--red);color:white}
+  .opt.picked-correct{background:var(--green-lt);border-color:#97C459}.opt.picked-correct .opt-letter{background:var(--green);border-color:var(--green);color:white}
+  .opt.wrong{background:var(--red-lt);border-color:#F09595}.opt.wrong .opt-letter{background:var(--red);border-color:var(--red);color:white}
   .feedback{margin-top:10px;font-size:12.5px;line-height:1.5;padding:8px 11px;border-radius:var(--radius-sm);display:none}
-  .feedback.show{display:block}
-  .feedback.ok{background:#C0DD97;color:#27500A}
-  .feedback.fail{background:#F7C1C1;color:#791F1F}
+  .feedback.show{display:block}.feedback.ok{background:#C0DD97;color:#27500A}.feedback.fail{background:#F7C1C1;color:#791F1F}
   .page-break{border:none;border-top:1px dashed var(--gray-2);margin:1.5rem 0}
   .actions{display:flex;justify-content:flex-end;gap:10px;margin-top:2rem;flex-wrap:wrap}
   .btn{padding:10px 22px;border-radius:var(--radius-sm);font-family:'DM Sans',sans-serif;font-size:14px;font-weight:500;cursor:pointer;border:1px solid var(--border);background:white;color:var(--text);transition:background .12s}
-  .btn:hover{background:var(--gray-1)}
-  .btn.primary{background:var(--gray-5);color:white;border-color:var(--gray-5)}
-  .btn.primary:hover{background:var(--gray-4)}
-  .btn.danger{background:var(--red-lt);color:var(--red);border-color:#F09595}
+  .btn:hover{background:var(--gray-1)}.btn.primary{background:var(--gray-5);color:white;border-color:var(--gray-5)}.btn.primary:hover{background:var(--gray-4)}.btn.danger{background:var(--red-lt);color:var(--red);border-color:#F09595}
   #results-panel{display:none;background:white;border:1px solid var(--border);border-radius:var(--radius);padding:2rem;margin-top:2rem;text-align:center}
-  .res-score{font-size:26px;font-weight:600;margin-bottom:4px}
-  .res-name{font-size:14px;color:var(--muted);margin-bottom:4px}
-  .res-msg{font-size:14px;color:var(--muted);line-height:1.5;max-width:400px;margin:0 auto 1.5rem}
+  .res-score{font-size:26px;font-weight:600;margin-bottom:4px}.res-name{font-size:14px;color:var(--muted);margin-bottom:4px}.res-msg{font-size:14px;color:var(--muted);line-height:1.5;max-width:400px;margin:0 auto 1.5rem}
   .res-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;max-width:360px;margin:0 auto}
-  .res-card{background:var(--gray-0);border-radius:var(--radius-sm);padding:12px}
-  .res-val{font-size:22px;font-weight:600;margin-bottom:2px}
-  .res-lbl{font-size:11px;color:var(--muted)}
-  .res-ok .res-val{color:var(--green)}
-  .res-fail .res-val{color:var(--red)}
-  .res-pct .res-val{color:var(--blue)}
+  .res-card{background:var(--gray-0);border-radius:var(--radius-sm);padding:12px}.res-val{font-size:22px;font-weight:600;margin-bottom:2px}.res-lbl{font-size:11px;color:var(--muted)}
+  .res-ok .res-val{color:var(--green)}.res-fail .res-val{color:var(--red)}.res-pct .res-val{color:var(--blue)}
   @media(max-width:580px){.page-header{padding:1.5rem}.main{padding:0 1rem 3rem}.datos-grid{grid-template-columns:1fr}}
 </style>
 <script>
@@ -98,8 +82,8 @@ document.addEventListener("DOMContentLoaded",function(){
 <body>
 <header class="page-header">
   <div class="header-eyebrow">Evaluación de polivalencia</div>
-  <div class="header-title">Traslado de Ubicaciones por RF</div>
-  <div class="header-sub">Instructivo IT-APT-19-V04</div>
+  <div class="header-title">Almacenamiento de Mercancía</div>
+  <div class="header-sub">Instructivo IT-APT-03-V07</div>
 </header>
 <main class="main">
   <div class="datos-card">
@@ -121,179 +105,120 @@ document.addEventListener("DOMContentLoaded",function(){
     </div>
   </div>
 
-  <!-- BLOQUE 1 -->
   <section class="block" data-block="1">
-    <div class="block-header"><div class="block-num">1</div><div class="block-title">Acceso al sistema SAP desde la RF</div><div class="block-line"></div></div>
+    <div class="block-header"><div class="block-num">1</div><div class="block-title">Almacenamiento UA Caja – MZN</div><div class="block-line"></div></div>
 
-    <div class="q-card" data-q="1" data-correct="b">
+    <div class="q-card" data-q="1" data-correct="a">
       <div class="q-top"><span class="q-idx">P 01</span>
-        <div class="q-text">¿Cuál es el primer paso para iniciar el proceso de traslado desde la terminal RF?</div>
+        <div class="q-text">Al almacenar una UA Caja en MZN, ¿qué opción debe seleccionar el operario en el sistema y qué productos van a esta área?</div>
       </div>
       <div class="q-img">
-        <svg viewBox="0 0 400 160" xmlns="http://www.w3.org/2000/svg">
-          <rect width="400" height="160" fill="#E8E4DE"/>
-          <rect x="110" y="15" width="180" height="130" rx="4" fill="#D8D4CE" stroke="#BBA" stroke-width="0.8"/>
-          <rect x="110" y="15" width="180" height="18" rx="4" fill="#185FA5"/>
-          <text x="200" y="28" font-size="9" text-anchor="middle" font-family="monospace" fill="white">Entrada al sistema</text>
-          <text x="120" y="52" font-size="9" font-family="monospace" fill="#444">Sistema:</text>
-          <rect x="185" y="43" width="90" height="13" rx="2" fill="#F0EDE8" stroke="#AAA" stroke-width="0.5"/>
-          <text x="190" y="53" font-size="9" font-family="monospace" fill="#333">D4D</text>
-          <text x="120" y="70" font-size="9" font-family="monospace" fill="#444">Mandante:*</text>
-          <rect x="185" y="61" width="90" height="13" rx="2" fill="#F0EDE8" stroke="#AAA" stroke-width="0.5"/>
-          <text x="190" y="71" font-size="9" font-family="monospace" fill="#333">500</text>
-          <text x="120" y="88" font-size="9" font-family="monospace" fill="#444">Usuario:*</text>
-          <rect x="185" y="79" width="90" height="13" rx="2" fill="#FFDCDC" stroke="#E09090" stroke-width="0.8"/>
-          <text x="120" y="106" font-size="9" font-family="monospace" fill="#444">Clave acceso:*</text>
-          <rect x="185" y="97" width="90" height="13" rx="2" fill="#FFDCDC" stroke="#E09090" stroke-width="0.8"/>
-          <text x="185" y="115" font-size="7" font-family="monospace" fill="#185FA5">← campos obligatorios</text>
-          <rect x="145" y="122" width="110" height="14" rx="3" fill="#185FA5"/>
-          <text x="200" y="132" font-size="8" text-anchor="middle" font-family="monospace" fill="white">Acceder al sistema</text>
+        <svg viewBox="0 0 400 130" xmlns="http://www.w3.org/2000/svg">
+          <rect width="400" height="130" fill="#E8E4DE"/>
+          <rect x="20" y="10" width="170" height="110" rx="3" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+          <text x="105" y="28" font-size="10" font-weight="600" text-anchor="middle" font-family="sans-serif" fill="#185FA5">MZN – Opción</text>
+          <rect x="35" y="35" width="140" height="16" rx="3" fill="#185FA5"/>
+          <text x="105" y="46" font-size="9" text-anchor="middle" font-family="monospace" fill="white">→ 1) Manual</text>
+          <rect x="35" y="55" width="140" height="16" rx="3" fill="#F0EDE8" stroke="#AAA" stroke-width="0.5"/>
+          <text x="105" y="66" font-size="9" text-anchor="middle" font-family="monospace" fill="#666">   2) Automático</text>
+          <text x="35" y="90" font-size="8" font-family="sans-serif" fill="#333">Productos: Ropa</text>
+          <text x="35" y="103" font-size="8" font-family="sans-serif" fill="#A32D2D">Zona Controlada: Joyería,</text>
+          <text x="35" y="114" font-size="8" font-family="sans-serif" fill="#A32D2D">Disp. Médicos, Alimentos</text>
+          <rect x="210" y="10" width="170" height="110" rx="3" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1"/>
+          <text x="295" y="28" font-size="10" font-weight="600" text-anchor="middle" font-family="sans-serif" fill="#3B6D11">MAIN – Opción</text>
+          <rect x="225" y="35" width="140" height="16" rx="3" fill="#F0EDE8" stroke="#AAA" stroke-width="0.5"/>
+          <text x="295" y="46" font-size="9" text-anchor="middle" font-family="monospace" fill="#666">   1) Manual</text>
+          <rect x="225" y="55" width="140" height="16" rx="3" fill="#3B6D11"/>
+          <text x="295" y="66" font-size="9" text-anchor="middle" font-family="monospace" fill="white">→ 2) Automático</text>
+          <text x="225" y="90" font-size="8" font-family="sans-serif" fill="#333">Productos: Hogar,</text>
+          <text x="225" y="103" font-size="8" font-family="sans-serif" fill="#333">Fragancia, Cuidado</text>
+          <text x="225" y="114" font-size="8" font-family="sans-serif" fill="#333">Personal</text>
         </svg>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q1" value="a"><span class="opt-letter">A</span><span class="opt-text">Escanear directamente la UA que se va a trasladar.</span></label>
-        <label class="opt"><input type="radio" name="q1" value="b"><span class="opt-letter">B</span><span class="opt-text">Seleccionar Internet Explorer, acceder a SAP e ingresar usuario y clave proporcionados por el jefe inmediato.</span></label>
-        <label class="opt"><input type="radio" name="q1" value="c"><span class="opt-letter">C</span><span class="opt-text">Navegar directamente al menú de traslados sin iniciar sesión.</span></label>
-        <label class="opt"><input type="radio" name="q1" value="d"><span class="opt-letter">D</span><span class="opt-text">Imprimir la orden de transporte antes de ingresar al sistema.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="a"><span class="opt-letter">A</span><span class="opt-text">Opción 1) Manual. Los productos de ropa van a MZN; joyería, dispositivos médicos y alimentos van a Zona Controlada.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="b"><span class="opt-letter">B</span><span class="opt-text">Opción 2) Automático. Los productos de hogar van a MZN.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="c"><span class="opt-letter">C</span><span class="opt-text">Opción 1) Manual. Todos los productos van a MZN sin excepción.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="d"><span class="opt-letter">D</span><span class="opt-text">Opción 2) Automático. La ropa va al MAIN.</span></label>
       </div>
-      <div class="feedback">El primer paso es seleccionar Internet Explorer para acceder a SAP e ingresar los datos de usuario y clave de acceso proporcionados por el jefe inmediato.</div>
+      <div class="feedback">Para UA Caja en MZN se selecciona la opción 1) Manual. La ropa va a MZN; joyería, dispositivos médicos y alimentos van al Almacén Zona Controlada; medicamentos al Almacén de Medicamentos.</div>
     </div>
 
-    <div class="q-card" data-q="2" data-correct="c">
+    <div class="q-card" data-q="2" data-correct="d">
       <div class="q-top"><span class="q-idx">P 02</span>
-        <div class="q-text">Dentro del menú principal, ¿qué opción debe seleccionar el operario para iniciar el traslado de una UA?</div>
-      </div>
-      <div class="q-img">
-        <svg viewBox="0 0 400 150" xmlns="http://www.w3.org/2000/svg">
-          <rect width="400" height="150" fill="#E8E4DE"/>
-          <rect x="40" y="15" width="150" height="120" rx="3" fill="#D8D4CE" stroke="#BBA" stroke-width="0.8"/>
-          <rect x="40" y="15" width="150" height="14" rx="3" fill="#C0B8B0"/>
-          <text x="65" y="17" font-size="7" font-family="monospace" fill="#555">F2Rein.  F3Back  F4Cont</text>
-          <rect x="48" y="32" width="130" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="113" y="41" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">1.Proceso EM</text>
-          <rect x="48" y="48" width="130" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="113" y="57" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">2.Proceso SM</text>
-          <rect x="48" y="64" width="130" height="13" rx="2" fill="#185FA5"/>
-          <text x="113" y="73" font-size="8" text-anchor="middle" font-family="monospace" fill="white">3.Traslado  ›  ←</text>
-          <rect x="48" y="80" width="130" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="113" y="89" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">4.Proc.almacén in</text>
-          <!-- submenu -->
-          <rect x="210" y="15" width="150" height="120" rx="3" fill="#D8D4CE" stroke="#BBA" stroke-width="0.8"/>
-          <rect x="210" y="15" width="150" height="14" rx="3" fill="#C0B8B0"/>
-          <rect x="218" y="32" width="134" height="13" rx="2" fill="#185FA5"/>
-          <text x="285" y="41" font-size="8" text-anchor="middle" font-family="monospace" fill="white">1.Traslado UA  ←</text>
-          <rect x="218" y="48" width="134" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="285" y="57" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">2.Traspaso</text>
-          <rect x="218" y="64" width="134" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="285" y="73" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">3.Devolucion Picki</text>
-          <text x="193" y="80" font-size="14" fill="#C8873A">→</text>
-        </svg>
+        <div class="q-text">Después de escanear el código de verificación del anaquel, ¿cómo sabe el operario que el almacenamiento fue exitoso?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q2" value="a"><span class="opt-letter">A</span><span class="opt-text">1. Proceso EM → Entrada Cajas.</span></label>
-        <label class="opt"><input type="radio" name="q2" value="b"><span class="opt-letter">B</span><span class="opt-text">4. Proc. almacén in → Almacenamiento.</span></label>
-        <label class="opt"><input type="radio" name="q2" value="c"><span class="opt-letter">C</span><span class="opt-text">3. Traslado → 1. Traslado UA.</span></label>
-        <label class="opt"><input type="radio" name="q2" value="d"><span class="opt-letter">D</span><span class="opt-text">2. Proceso SM → Traspaso.</span></label>
+        <label class="opt"><input type="radio" name="q2" value="a"><span class="opt-letter">A</span><span class="opt-text">El sistema emite un sonido de confirmación automático.</span></label>
+        <label class="opt"><input type="radio" name="q2" value="b"><span class="opt-letter">B</span><span class="opt-text">La pantalla cambia de color a verde.</span></label>
+        <label class="opt"><input type="radio" name="q2" value="c"><span class="opt-letter">C</span><span class="opt-text">El jefe de almacén confirma por radio que el proceso fue correcto.</span></label>
+        <label class="opt"><input type="radio" name="q2" value="d"><span class="opt-letter">D</span><span class="opt-text">Aparece el mensaje "Se ha creado la orden de transporte". Se presiona F3 u OK para continuar.</span></label>
       </div>
-      <div class="feedback">Se debe seleccionar la opción 3. Traslado y luego elegir 1. Traslado UA para iniciar el proceso de traslado de la unidad de almacenamiento.</div>
+      <div class="feedback">El almacenamiento fue exitoso cuando aparece el mensaje "Se ha creado la orden de transporte". Esto indica que la UA fue almacenada correctamente. Se presiona F3 o selecciona OK para continuar.</div>
     </div>
   </section>
 
   <hr class="page-break">
 
-  <!-- BLOQUE 2 -->
   <section class="block" data-block="2">
-    <div class="block-header"><div class="block-num">2</div><div class="block-title">Escaneo de UA y selección de ubicación destino</div><div class="block-line"></div></div>
+    <div class="block-header"><div class="block-num">2</div><div class="block-title">Almacenamiento UA Pallet – MAIN</div><div class="block-line"></div></div>
 
-    <div class="q-card" data-q="3" data-correct="a">
+    <div class="q-card" data-q="3" data-correct="b">
       <div class="q-top"><span class="q-idx">P 03</span>
-        <div class="q-text">Al aparecer la pantalla de traslado, ¿qué debe hacer el operario primero y qué tecla presiona para continuar?</div>
+        <div class="q-text">Al almacenar una UA Pallet en el MAIN, ¿qué opción selecciona en el sistema y qué diferencia tiene con el proceso de MZN?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q3" value="a"><span class="opt-letter">A</span><span class="opt-text">Escanear la UA que se va a trasladar y presionar F4. Cont para continuar.</span></label>
-        <label class="opt"><input type="radio" name="q3" value="b"><span class="opt-letter">B</span><span class="opt-text">Escanear el código del anaquel destino y presionar Enter.</span></label>
-        <label class="opt"><input type="radio" name="q3" value="c"><span class="opt-letter">C</span><span class="opt-text">Digitar manualmente el número de OT y presionar F1.Grab.</span></label>
-        <label class="opt"><input type="radio" name="q3" value="d"><span class="opt-letter">D</span><span class="opt-text">Seleccionar la opción Manual y presionar F3.Atrs.</span></label>
+        <label class="opt"><input type="radio" name="q3" value="a"><span class="opt-letter">A</span><span class="opt-text">Opción 1) Manual, igual que en MZN.</span></label>
+        <label class="opt"><input type="radio" name="q3" value="b"><span class="opt-letter">B</span><span class="opt-text">Opción 2) Automático. En MZN se usa Manual y en MAIN se usa Automático.</span></label>
+        <label class="opt"><input type="radio" name="q3" value="c"><span class="opt-letter">C</span><span class="opt-text">Opción 2) Automático, igual que en MZN.</span></label>
+        <label class="opt"><input type="radio" name="q3" value="d"><span class="opt-letter">D</span><span class="opt-text">No se selecciona ninguna opción en MAIN.</span></label>
       </div>
-      <div class="feedback">El operario debe escanear la UA que va a trasladar y presionar F4. Cont para continuar al siguiente paso del proceso.</div>
+      <div class="feedback">Para UA Pallet en MAIN se selecciona la opción 2) Automático. La diferencia clave es que en MZN se usa Manual (opción 1) y en MAIN se usa Automático (opción 2).</div>
     </div>
 
-    <div class="q-card" data-q="4" data-correct="d">
+    <div class="q-card" data-q="4" data-correct="c">
       <div class="q-top"><span class="q-idx">P 04</span>
-        <div class="q-text">Al almacenar en un nuevo anaquel, ¿qué pasos debe seguir el operario además de escanear el nuevo código de verificación?</div>
-      </div>
-      <div class="q-img">
-        <svg viewBox="0 0 380 130" xmlns="http://www.w3.org/2000/svg">
-          <rect width="380" height="130" fill="#E8E4DE"/>
-          <rect x="20" y="10" width="340" height="110" rx="3" fill="#D8D4CE" stroke="#BBA" stroke-width="0.8"/>
-          <rect x="20" y="10" width="340" height="14" rx="3" fill="#C0B8B0"/>
-          <rect x="28" y="24" width="75" height="12" rx="2" fill="#C8C0B8"/>
-          <text x="65" y="33" font-size="8" text-anchor="middle" font-family="monospace" fill="#333">F1.Grab</text>
-          <rect x="108" y="24" width="75" height="12" rx="2" fill="#C8C0B8"/>
-          <text x="145" y="33" font-size="8" text-anchor="middle" font-family="monospace" fill="#333">F2.Reinc</text>
-          <rect x="188" y="24" width="75" height="12" rx="2" fill="#C8C0B8"/>
-          <text x="225" y="33" font-size="8" text-anchor="middle" font-family="monospace" fill="#333">F3.Atrs</text>
-          <rect x="268" y="24" width="75" height="12" rx="2" fill="#185FA5"/>
-          <text x="305" y="33" font-size="8" text-anchor="middle" font-family="monospace" fill="white">F7.NvUb ←</text>
-          <text x="28" y="55" font-size="8" font-family="monospace" fill="#444">UA  2200355371</text>
-          <text x="28" y="68" font-size="8" font-family="monospace" fill="#444">Ubic.Destino: Z01 S3-01-5</text>
-          <text x="28" y="81" font-size="8" font-family="monospace" fill="#444">Material: VESTIDO ROMA 45, T-X</text>
-          <text x="28" y="100" font-size="7" font-family="sans-serif" fill="#3B6D11">→ Cambiar código de verificación y presionar F7.NvUb</text>
-        </svg>
+        <div class="q-text">Al dejar la estiba en su nueva ubicación MAIN, ¿qué acción importante debe realizar el operario para evitar reprocesos?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q4" value="a"><span class="opt-letter">A</span><span class="opt-text">Presionar F3.Atrs para regresar al menú principal.</span></label>
-        <label class="opt"><input type="radio" name="q4" value="b"><span class="opt-letter">B</span><span class="opt-text">Presionar F2.Reinc para reiniciar el proceso.</span></label>
-        <label class="opt"><input type="radio" name="q4" value="c"><span class="opt-letter">C</span><span class="opt-text">Presionar F1.Grab directamente sin cambiar nada.</span></label>
-        <label class="opt"><input type="radio" name="q4" value="d"><span class="opt-letter">D</span><span class="opt-text">Presionar F7.NvUb (nueva ubicación), escanear el nuevo código y confirmar con F1.Grab.</span></label>
+        <label class="opt"><input type="radio" name="q4" value="a"><span class="opt-letter">A</span><span class="opt-text">Dejar la UA Pallet antigua junto a la nueva para referencia.</span></label>
+        <label class="opt"><input type="radio" name="q4" value="b"><span class="opt-letter">B</span><span class="opt-text">Notificar al jefe antes de retirar cualquier estiba.</span></label>
+        <label class="opt"><input type="radio" name="q4" value="c"><span class="opt-letter">C</span><span class="opt-text">Retirar la UA Pallet antigua y colocar la nueva en la ubicación.</span></label>
+        <label class="opt"><input type="radio" name="q4" value="d"><span class="opt-letter">D</span><span class="opt-text">Imprimir el código del nuevo anaquel antes de mover la estiba.</span></label>
       </div>
-      <div class="feedback">Al almacenar en un nuevo anaquel se debe cambiar el código de verificación, presionar F7.NvUb (nueva ubicación), escanear el nuevo código y confirmar con F1.Grab.</div>
+      <div class="feedback">Al dejar la estiba en su nueva ubicación es importante retirar la UA Pallet antigua y colocar la nueva para evitar reprocesos en el sistema.</div>
     </div>
   </section>
 
   <hr class="page-break">
 
-  <!-- BLOQUE 3 -->
   <section class="block" data-block="3">
-    <div class="block-header"><div class="block-num">3</div><div class="block-title">Confirmación y mensajes del sistema</div><div class="block-line"></div></div>
+    <div class="block-header"><div class="block-num">3</div><div class="block-title">Instrucciones generales del almacén</div><div class="block-line"></div></div>
 
-    <div class="q-card" data-q="5" data-correct="b">
+    <div class="q-card" data-q="5" data-correct="a">
       <div class="q-top"><span class="q-idx">P 05</span>
-        <div class="q-text">¿Qué indica el mensaje "Se ha creado la orden de transporte" al finalizar el proceso?</div>
-      </div>
-      <div class="q-img">
-        <svg viewBox="0 0 320 100" xmlns="http://www.w3.org/2000/svg">
-          <rect width="320" height="100" fill="#E8E4DE"/>
-          <rect x="70" y="10" width="180" height="70" rx="4" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1"/>
-          <circle cx="95" cy="35" r="10" fill="#3B6D11"/>
-          <text x="95" y="39" font-size="10" text-anchor="middle" font-family="sans-serif" fill="white">✓</text>
-          <text x="115" y="30" font-size="8" font-family="monospace" fill="#27500A">Se ha creado la orden</text>
-          <text x="115" y="41" font-size="8" font-family="monospace" fill="#27500A">de transporte</text>
-          <text x="88" y="55" font-size="8" font-family="monospace" fill="#27500A">0001635637</text>
-          <rect x="120" y="62" width="60" height="12" rx="3" fill="#185FA5"/>
-          <text x="150" y="71" font-size="8" text-anchor="middle" font-family="monospace" fill="white">OK / F3</text>
-        </svg>
+        <div class="q-text">¿En cuántas áreas se divide el almacén y de qué depende el tipo de almacenamiento?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q5" value="a"><span class="opt-letter">A</span><span class="opt-text">Que ocurrió un error y se debe repetir el proceso.</span></label>
-        <label class="opt"><input type="radio" name="q5" value="b"><span class="opt-letter">B</span><span class="opt-text">Que el traslado concluyó exitosamente y la UA fue ubicada correctamente. Se presiona F3 u OK para continuar.</span></label>
-        <label class="opt"><input type="radio" name="q5" value="c"><span class="opt-letter">C</span><span class="opt-text">Que la UA quedó pendiente de confirmación por el jefe.</span></label>
-        <label class="opt"><input type="radio" name="q5" value="d"><span class="opt-letter">D</span><span class="opt-text">Que se debe escanear nuevamente la UA para confirmar.</span></label>
+        <label class="opt"><input type="radio" name="q5" value="a"><span class="opt-letter">A</span><span class="opt-text">Dos áreas: Mezanine y Main. El tipo de almacenamiento depende del tipo de almacén asignado a cada línea.</span></label>
+        <label class="opt"><input type="radio" name="q5" value="b"><span class="opt-letter">B</span><span class="opt-text">Tres áreas: Norte, Centro y Sur. Depende del turno de trabajo.</span></label>
+        <label class="opt"><input type="radio" name="q5" value="c"><span class="opt-letter">C</span><span class="opt-text">Cuatro áreas según el producto. Depende del operario asignado.</span></label>
+        <label class="opt"><input type="radio" name="q5" value="d"><span class="opt-letter">D</span><span class="opt-text">Una sola área. Depende del número de UA disponibles.</span></label>
       </div>
-      <div class="feedback">El mensaje de orden de transporte creada indica que el proceso concluyó de forma exitosa y la UA fue trasladada y ubicada correctamente. Se presiona F3 o selecciona OK para continuar.</div>
+      <div class="feedback">El almacén se divide en dos áreas: Mezanine y Main. El tipo de almacenamiento depende del tipo de almacén asignado a cada línea (instrucciones 4.2 y 4.3).</div>
     </div>
 
-    <div class="q-card" data-q="6" data-correct="c">
+    <div class="q-card" data-q="6" data-correct="d">
       <div class="q-top"><span class="q-idx">P 06</span>
-        <div class="q-text">Según las instrucciones generales, ¿qué debe acompañar siempre a todo movimiento físico de mercancía?</div>
+        <div class="q-text">¿Cuál es el responsable de realizar las instrucciones específicas del proceso de almacenamiento?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q6" value="a"><span class="opt-letter">A</span><span class="opt-text">Una firma del supervisor de turno.</span></label>
-        <label class="opt"><input type="radio" name="q6" value="b"><span class="opt-letter">B</span><span class="opt-text">Una impresión física de la orden de transporte.</span></label>
-        <label class="opt"><input type="radio" name="q6" value="c"><span class="opt-letter">C</span><span class="opt-text">Un movimiento registrado en el sistema SAP.</span></label>
-        <label class="opt"><input type="radio" name="q6" value="d"><span class="opt-letter">D</span><span class="opt-text">Un conteo físico previo autorizado por el jefe.</span></label>
+        <label class="opt"><input type="radio" name="q6" value="a"><span class="opt-letter">A</span><span class="opt-text">El jefe de almacén.</span></label>
+        <label class="opt"><input type="radio" name="q6" value="b"><span class="opt-letter">B</span><span class="opt-text">El auxiliar administrativo.</span></label>
+        <label class="opt"><input type="radio" name="q6" value="c"><span class="opt-letter">C</span><span class="opt-text">El coordinador de mejora continua.</span></label>
+        <label class="opt"><input type="radio" name="q6" value="d"><span class="opt-letter">D</span><span class="opt-text">El auxiliar operativo.</span></label>
       </div>
-      <div class="feedback">Todo movimiento físico debe ir acompañado de su correspondiente movimiento en el sistema SAP. Cada acción real debe tener su registro lógico.</div>
+      <div class="feedback">Según el instructivo IT-APT-03-V07, el Auxiliar Operativo es el responsable de realizar las instrucciones específicas del proceso de almacenamiento de mercancía.</div>
     </div>
   </section>
 
@@ -324,44 +249,20 @@ function submitQuiz(){
     const picked=card.querySelector(`input[name="q${qNum}"]:checked`);
     const feedback=card.querySelector('.feedback');
     card.querySelectorAll('.opt').forEach(o=>{o.classList.remove('picked-correct','wrong');o.style.pointerEvents='none';});
-    if(picked){
-      const po=picked.closest('.opt');
-      if(picked.value===correctV){po.classList.add('picked-correct');correct++;feedback.classList.add('show','ok');feedback.classList.remove('fail');}
-      else{po.classList.add('wrong');wrong++;feedback.classList.add('show','fail');feedback.classList.remove('ok');card.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===correctV)o.classList.add('picked-correct');});}
-    }else{wrong++;feedback.classList.add('show','fail');feedback.classList.remove('ok');card.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===correctV)o.classList.add('picked-correct');});}
+    if(picked){const po=picked.closest('.opt');if(picked.value===correctV){po.classList.add('picked-correct');correct++;feedback.classList.add('show','ok');feedback.classList.remove('fail');}else{po.classList.add('wrong');wrong++;feedback.classList.add('show','fail');feedback.classList.remove('ok');card.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===correctV)o.classList.add('picked-correct');});}}else{wrong++;feedback.classList.add('show','fail');feedback.classList.remove('ok');card.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===correctV)o.classList.add('picked-correct');});}
   });
   const pct=Math.round((correct/TOTAL)*100);
-  document.getElementById('r-total').textContent=TOTAL+' preguntas';
-  document.getElementById('r-correct').textContent=correct+' correctas';
-  document.getElementById('r-wrong').textContent=wrong+' incorrectas';
-  document.getElementById('r-pct').textContent=pct+'%';
-  document.getElementById('score-wrap').style.display='block';
-  document.getElementById('res-score-txt').textContent=pct+'%  —  '+(pct>=70?'✓ APROBADO':'✗ NO APROBADO');
-  document.getElementById('res-name-txt').textContent=nombre+' · C.C. '+cedula;
-  document.getElementById('res-msg-txt').textContent=pct>=70?'Ha superado la evaluación. ¡Buen trabajo!':'No alcanzó el puntaje mínimo (70%). Repase el instructivo IT-APT-19-V04 e intente nuevamente.';
-  document.getElementById('res-ok-n').textContent=correct;
-  document.getElementById('res-fail-n').textContent=wrong;
-  document.getElementById('res-pct-n').textContent=pct+'%';
-  document.getElementById('results-panel').style.display='block';
-  document.getElementById('results-panel').scrollIntoView({behavior:'smooth'});
-  document.getElementById('inp-nombre').readOnly=true;
-  document.getElementById('inp-cedula').readOnly=true;
-  const answers={};
-  for(let i=1;i<=TOTAL;i++){const p=document.querySelector(`input[name="q${i}"]:checked`);answers['P'+String(i).padStart(2,'0')]=p?p.value.toUpperCase():'—';}
-  fetch('https://formspree.io/f/xojbdjgg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nombre,cedula,evaluacion:'Traslado de Ubicaciones por RF',correctas:correct,incorrectas:wrong,calificacion:pct+'%',resultado:pct>=70?'APROBADO':'NO APROBADO',fecha:new Date().toLocaleString('es-CO',{timeZone:'America/Bogota'}),...answers})}).catch(err=>console.error(err));
+  document.getElementById('r-total').textContent=TOTAL+' preguntas';document.getElementById('r-correct').textContent=correct+' correctas';document.getElementById('r-wrong').textContent=wrong+' incorrectas';document.getElementById('r-pct').textContent=pct+'%';document.getElementById('score-wrap').style.display='block';
+  document.getElementById('res-score-txt').textContent=pct+'%  —  '+(pct>=70?'✓ APROBADO':'✗ NO APROBADO');document.getElementById('res-name-txt').textContent=nombre+' · C.C. '+cedula;document.getElementById('res-msg-txt').textContent=pct>=70?'Ha superado la evaluación. ¡Buen trabajo!':'No alcanzó el puntaje mínimo (70%). Repase el instructivo IT-APT-03-V07.';
+  document.getElementById('res-ok-n').textContent=correct;document.getElementById('res-fail-n').textContent=wrong;document.getElementById('res-pct-n').textContent=pct+'%';document.getElementById('results-panel').style.display='block';document.getElementById('results-panel').scrollIntoView({behavior:'smooth'});
+  document.getElementById('inp-nombre').readOnly=true;document.getElementById('inp-cedula').readOnly=true;
+  const answers={};for(let i=1;i<=TOTAL;i++){const p=document.querySelector(`input[name="q${i}"]:checked`);answers['P'+String(i).padStart(2,'0')]=p?p.value.toUpperCase():'—';}
+  fetch('https://formspree.io/f/xojbdjgg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nombre,cedula,evaluacion:'Almacenamiento de Mercancia',correctas:correct,incorrectas:wrong,calificacion:pct+'%',resultado:pct>=70?'APROBADO':'NO APROBADO',fecha:new Date().toLocaleString('es-CO',{timeZone:'America/Bogota'}),...answers})}).catch(err=>console.error(err));
 }
 function resetQuiz(){
   if(!confirm('¿Desea reiniciar la evaluación?'))return;
-  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);
-  document.querySelectorAll('.opt').forEach(o=>{o.classList.remove('picked-correct','wrong');o.style.pointerEvents='';});
-  document.querySelectorAll('.feedback').forEach(f=>f.classList.remove('show','ok','fail'));
-  document.getElementById('score-wrap').style.display='none';
-  document.getElementById('results-panel').style.display='none';
-  document.getElementById('inp-nombre').readOnly=false;
-  document.getElementById('inp-cedula').readOnly=false;
-  document.getElementById('inp-nombre').value='';
-  document.getElementById('inp-cedula').value='';
-  window.scrollTo({top:0,behavior:'smooth'});
+  document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);document.querySelectorAll('.opt').forEach(o=>{o.classList.remove('picked-correct','wrong');o.style.pointerEvents='';});document.querySelectorAll('.feedback').forEach(f=>f.classList.remove('show','ok','fail'));
+  document.getElementById('score-wrap').style.display='none';document.getElementById('results-panel').style.display='none';document.getElementById('inp-nombre').readOnly=false;document.getElementById('inp-cedula').readOnly=false;document.getElementById('inp-nombre').value='';document.getElementById('inp-cedula').value='';window.scrollTo({top:0,behavior:'smooth'});
 }
 </script>
 </body>
