@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Evaluación – Palletizado UA Caja</title>
+<title>Evaluación – Conteos Cíclicos y Periódicos</title>
 <style>
   @import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&family=DM+Mono:wght@400;500&display=swap');
   *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
@@ -82,8 +82,8 @@ document.addEventListener("DOMContentLoaded",function(){
 <body>
 <header class="page-header">
   <div class="header-eyebrow">Evaluación de polivalencia</div>
-  <div class="header-title">Palletizado UA Caja</div>
-  <div class="header-sub">Instructivo IT-APT-08-V03</div>
+  <div class="header-title">Conteos Cíclicos y Periódicos</div>
+  <div class="header-sub">Instructivo IT-APT-11-V03</div>
 </header>
 <main class="main">
   <div class="datos-card">
@@ -106,120 +106,115 @@ document.addEventListener("DOMContentLoaded",function(){
   </div>
 
   <section class="block" data-block="1">
-    <div class="block-header"><div class="block-num">1</div><div class="block-title">Inicio del proceso y ruta en el sistema</div><div class="block-line"></div></div>
+    <div class="block-header"><div class="block-num">1</div><div class="block-title">Preparación y ejecución del conteo</div><div class="block-line"></div></div>
 
-    <div class="q-card" data-q="1" data-correct="c">
+    <div class="q-card" data-q="1" data-correct="d">
       <div class="q-top"><span class="q-idx">P 01</span>
-        <div class="q-text">¿Cuál es la ruta correcta en el menú SAP para iniciar el proceso de palletizado UA Caja?</div>
+        <div class="q-text">Al llegar a la ubicación asignada, ¿qué debe escanear primero el operario y qué diferencia hay entre el conteo en MZN y en MAIN?</div>
       </div>
       <div class="q-img">
         <svg viewBox="0 0 420 130" xmlns="http://www.w3.org/2000/svg">
-          <rect width="420" height="130" fill="#E8E4DE"/>
-          <rect x="15" y="10" width="185" height="110" rx="3" fill="#D8D4CE" stroke="#BBA" stroke-width="0.8"/>
-          <rect x="15" y="10" width="185" height="14" rx="3" fill="#C0B8B0"/>
-          <text x="107" y="22" font-size="8" text-anchor="middle" font-family="monospace" fill="#555">Menú Principal</text>
-          <rect x="23" y="28" width="169" height="13" rx="2" fill="#185FA5"/>
-          <text x="107" y="37" font-size="8" text-anchor="middle" font-family="monospace" fill="white">1.Proceso EM  ›  ←</text>
-          <rect x="23" y="44" width="169" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="107" y="53" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">2.Proceso SM</text>
-          <rect x="23" y="60" width="169" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="107" y="69" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">3.Traslado</text>
-          <text x="208" y="70" font-size="14" fill="#C8873A">→</text>
-          <rect x="220" y="10" width="185" height="110" rx="3" fill="#D8D4CE" stroke="#BBA" stroke-width="0.8"/>
-          <rect x="220" y="10" width="185" height="14" rx="3" fill="#C0B8B0"/>
-          <text x="312" y="22" font-size="8" text-anchor="middle" font-family="monospace" fill="#555">Proceso EM</text>
-          <rect x="228" y="28" width="169" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="312" y="37" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">1.Entrada Cajas</text>
-          <rect x="228" y="44" width="169" height="13" rx="2" fill="#185FA5"/>
-          <text x="312" y="53" font-size="8" text-anchor="middle" font-family="monospace" fill="white">2.Embalar Cajas  ←</text>
-          <rect x="228" y="60" width="169" height="13" rx="2" fill="#F0EDE8"/>
-          <text x="312" y="69" font-size="8" text-anchor="middle" font-family="monospace" fill="#444">3.Entrada Maquilas</text>
+          <rect width="420" height="130" fill="#F0EDE8"/>
+          <rect x="15" y="10" width="185" height="110" rx="3" fill="#E6F1FB" stroke="#185FA5" stroke-width="1"/>
+          <text x="107" y="28" font-size="10" font-weight="600" text-anchor="middle" font-family="sans-serif" fill="#185FA5">MZN</text>
+          <text x="25" y="45" font-size="8" font-family="sans-serif" fill="#333">1. Escanear dígito de</text>
+          <text x="25" y="56" font-size="8" font-family="sans-serif" fill="#333">   verificación ubicación</text>
+          <text x="25" y="70" font-size="8" font-family="sans-serif" fill="#333">2. Sacar TODAS las cajas</text>
+          <text x="25" y="83" font-size="8" font-family="sans-serif" fill="#333">3. Organizar en hilera</text>
+          <text x="25" y="96" font-size="8" font-family="sans-serif" fill="#333">4. Escanear UA una a una</text>
+          <rect x="220" y="10" width="185" height="110" rx="3" fill="#EAF3DE" stroke="#3B6D11" stroke-width="1"/>
+          <text x="312" y="28" font-size="10" font-weight="600" text-anchor="middle" font-family="sans-serif" fill="#3B6D11">MAIN</text>
+          <text x="230" y="45" font-size="8" font-family="sans-serif" fill="#333">1. Escanear dígito de</text>
+          <text x="230" y="56" font-size="8" font-family="sans-serif" fill="#333">   verificación ubicación</text>
+          <text x="230" y="70" font-size="8" font-family="sans-serif" fill="#A32D2D">NO se sacan las cajas</text>
+          <text x="230" y="83" font-size="8" font-family="sans-serif" fill="#333">Valida materiales y</text>
+          <text x="230" y="96" font-size="8" font-family="sans-serif" fill="#333">unidades en ubicación</text>
         </svg>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q1" value="a"><span class="opt-letter">A</span><span class="opt-text">Proceso SM → Almacenamiento.</span></label>
-        <label class="opt"><input type="radio" name="q1" value="b"><span class="opt-letter">B</span><span class="opt-text">Proceso EM → Entrada Cajas.</span></label>
-        <label class="opt"><input type="radio" name="q1" value="c"><span class="opt-letter">C</span><span class="opt-text">Proceso EM → Embalar Cajas.</span></label>
-        <label class="opt"><input type="radio" name="q1" value="d"><span class="opt-letter">D</span><span class="opt-text">Traslado → Traslado UA.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="a"><span class="opt-letter">A</span><span class="opt-text">Primero el código del producto; en MZN se cuenta en ubicación y en MAIN se sacan las cajas.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="b"><span class="opt-letter">B</span><span class="opt-text">Primero la UA; en ambas áreas el proceso es igual.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="c"><span class="opt-letter">C</span><span class="opt-text">Primero el número de OT; en MAIN se organizan las cajas en hilera.</span></label>
+        <label class="opt"><input type="radio" name="q1" value="d"><span class="opt-letter">D</span><span class="opt-text">Primero el dígito de verificación de la ubicación y presionar Enter. En MZN se sacan todas las cajas y se organizan en hilera; en MAIN se validan materiales sin sacar las cajas.</span></label>
       </div>
-      <div class="feedback">Para iniciar el palletizado se debe ir a Proceso EM (Entrada de mercancía) y seleccionar la opción Embalar Cajas, que convierte las UA caja a pallet para almacenar en MAIN.</div>
+      <div class="feedback">Al llegar a la ubicación se escanea el dígito de verificación y se presiona Enter. En MZN se sacan todas las cajas y se organizan en hilera para escanear en orden. En MAIN se validan materiales y unidades sin sacar las cajas de la ubicación.</div>
     </div>
 
     <div class="q-card" data-q="2" data-correct="b">
       <div class="q-top"><span class="q-idx">P 02</span>
-        <div class="q-text">Al escanear cada caja individual, ¿qué debe verificar el operario en pantalla y qué tecla usa para continuar con la siguiente caja?</div>
+        <div class="q-text">¿Qué debe hacer el operario si al escanear la UA el sistema no lee el código, y qué hace con el material que no pudo ingresar por terminal?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q2" value="a"><span class="opt-letter">A</span><span class="opt-text">Que el producto sea correcto; presiona F4 Cerrar.</span></label>
-        <label class="opt"><input type="radio" name="q2" value="b"><span class="opt-letter">B</span><span class="opt-text">Que la información cargue abajo y el contador UA Caja Total aumente; presiona Enter o F1 Grabar.</span></label>
-        <label class="opt"><input type="radio" name="q2" value="c"><span class="opt-letter">C</span><span class="opt-text">Que el UA Pallet cambie de número; presiona F3 Atrás.</span></label>
-        <label class="opt"><input type="radio" name="q2" value="d"><span class="opt-letter">D</span><span class="opt-text">Que aparezca el mensaje de OT creada; presiona F2 Reinic.</span></label>
+        <label class="opt"><input type="radio" name="q2" value="a"><span class="opt-letter">A</span><span class="opt-text">Omite la caja y la reporta como faltante; descarta el material no ingresado.</span></label>
+        <label class="opt"><input type="radio" name="q2" value="b"><span class="opt-letter">B</span><span class="opt-text">Digita el número manualmente y presiona Enter (solo MZN); el material no ingresado se deja enfrente de la ubicación ordenado por SID para el segundo conteo.</span></label>
+        <label class="opt"><input type="radio" name="q2" value="c"><span class="opt-letter">C</span><span class="opt-text">Llama al jefe para que escanee; devuelve el material no ingresado al proveedor.</span></label>
+        <label class="opt"><input type="radio" name="q2" value="d"><span class="opt-letter">D</span><span class="opt-text">Reinicia la terminal y vuelve a intentarlo; guarda el material no ingresado en bodega.</span></label>
       </div>
-      <div class="feedback">Cada vez que se escanea una caja se debe verificar que la información cargue en la parte inferior y que el contador UA Caja Total aumente. Se presiona Enter o F1 Grabar para continuar con la siguiente caja.</div>
+      <div class="feedback">Si la terminal no lee el número de UA se debe digitar manualmente y presionar Enter (solo para MZN). El material que no fue ingresado por terminal se deja enfrente de la ubicación ordenado por número de SID para verificarlo en el segundo conteo.</div>
     </div>
   </section>
 
   <hr class="page-break">
 
   <section class="block" data-block="2">
-    <div class="block-header"><div class="block-num">2</div><div class="block-title">Cierre del proceso y mensajes de error</div><div class="block-line"></div></div>
+    <div class="block-header"><div class="block-num">2</div><div class="block-title">Segundo conteo y cambio de UA</div><div class="block-line"></div></div>
 
     <div class="q-card" data-q="3" data-correct="a">
       <div class="q-top"><span class="q-idx">P 03</span>
-        <div class="q-text">Al terminar de escanear todas las cajas, ¿qué debe verificar antes de cerrar y cómo procede?</div>
+        <div class="q-text">¿Cómo se realiza el conteo de las cajas abiertas de saldo en MZN?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q3" value="a"><span class="opt-letter">A</span><span class="opt-text">Confirmar que el total de cajas en pantalla coincida con el conteo físico; luego presionar F4 Cerrar.</span></label>
-        <label class="opt"><input type="radio" name="q3" value="b"><span class="opt-letter">B</span><span class="opt-text">Verificar que el UA Pallet esté en su ubicación correcta; luego presionar F1 Grabar.</span></label>
-        <label class="opt"><input type="radio" name="q3" value="c"><span class="opt-letter">C</span><span class="opt-text">Imprimir el resumen antes de cerrar; luego presionar F3 Atrás.</span></label>
-        <label class="opt"><input type="radio" name="q3" value="d"><span class="opt-letter">D</span><span class="opt-text">Llamar al jefe para verificar el conteo; luego presionar Enter.</span></label>
+        <label class="opt"><input type="radio" name="q3" value="a"><span class="opt-letter">A</span><span class="opt-text">Se escanea dos veces la UA, se verifican las unidades existentes, se digitan en el campo solicitado y se graba.</span></label>
+        <label class="opt"><input type="radio" name="q3" value="b"><span class="opt-letter">B</span><span class="opt-text">Se cuenta visualmente y se anota en papel sin escanear.</span></label>
+        <label class="opt"><input type="radio" name="q3" value="c"><span class="opt-letter">C</span><span class="opt-text">Se escanea una sola vez y se presiona F4 Cerrar.</span></label>
+        <label class="opt"><input type="radio" name="q3" value="d"><span class="opt-letter">D</span><span class="opt-text">Se reportan directamente al auxiliar administrativo sin escanear.</span></label>
       </div>
-      <div class="feedback">Antes de cerrar se debe confirmar que el total de cajas en pantalla coincida con el conteo físico. Una vez verificado se presiona F4 Cerrar para finalizar el proceso.</div>
+      <div class="feedback">Para las cajas abiertas de saldo se escanea dos veces la UA, se verifican las unidades existentes, se digitan en el campo solicitado y se graba para continuar.</div>
     </div>
 
-    <div class="q-card" data-q="4" data-correct="d">
+    <div class="q-card" data-q="4" data-correct="c">
       <div class="q-top"><span class="q-idx">P 04</span>
-        <div class="q-text">¿Qué indica el mensaje "UA-Pallet ya existe" y qué debe hacer el operario?</div>
+        <div class="q-text">¿En qué casos se debe realizar cambio de UA durante el conteo y de dónde se toma el nuevo número?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q4" value="a"><span class="opt-letter">A</span><span class="opt-text">Que el pallet fue creado correctamente y puede continuar.</span></label>
-        <label class="opt"><input type="radio" name="q4" value="b"><span class="opt-letter">B</span><span class="opt-text">Que el sistema tiene un error técnico y hay que reiniciarlo.</span></label>
-        <label class="opt"><input type="radio" name="q4" value="c"><span class="opt-letter">C</span><span class="opt-text">Que la caja scaneada no corresponde al tipo de almacén.</span></label>
-        <label class="opt"><input type="radio" name="q4" value="d"><span class="opt-letter">D</span><span class="opt-text">Que el UA Pallet ya está armado o está repetido. Debe seleccionar Atrás para regresar y verificar.</span></label>
+        <label class="opt"><input type="radio" name="q4" value="a"><span class="opt-letter">A</span><span class="opt-text">Solo cuando la caja está completamente destruida; el número lo asigna el jefe.</span></label>
+        <label class="opt"><input type="radio" name="q4" value="b"><span class="opt-letter">B</span><span class="opt-text">Cuando el producto está vencido; el número se crea en SAP.</span></label>
+        <label class="opt"><input type="radio" name="q4" value="c"><span class="opt-letter">C</span><span class="opt-text">Cuando la UA está rota, tiene código SID, es ilegible o está muy rayada; el nuevo número UA-canti se toma de la hoja del segundo conteo.</span></label>
+        <label class="opt"><input type="radio" name="q4" value="d"><span class="opt-letter">D</span><span class="opt-text">Solo cuando el auxiliar administrativo lo autoriza; el número se genera automáticamente.</span></label>
       </div>
-      <div class="feedback">El mensaje "UA-Pallet ya existe" indica que el UA Pallet que se está usando ya está armado o está repetido. Se debe seleccionar F3 Atrás para regresar y verificar el número de pallet.</div>
+      <div class="feedback">Se realiza cambio de UA cuando está rota, tiene código SID, es ilegible o está muy rayada. El nuevo número UA-canti se toma de la hoja del segundo conteo.</div>
     </div>
   </section>
 
   <hr class="page-break">
 
   <section class="block" data-block="3">
-    <div class="block-header"><div class="block-num">3</div><div class="block-title">Confirmación final del proceso</div><div class="block-line"></div></div>
+    <div class="block-header"><div class="block-num">3</div><div class="block-title">Mensajes del sistema y cierre</div><div class="block-line"></div></div>
 
-    <div class="q-card" data-q="5" data-correct="c">
+    <div class="q-card" data-q="5" data-correct="d">
       <div class="q-top"><span class="q-idx">P 05</span>
-        <div class="q-text">¿Para qué cajas aplica el proceso de convertir de UA caja a pallet?</div>
+        <div class="q-text">¿Qué indica el mensaje "Usuario no asignado a ningún documento activo de inventario físico"?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q5" value="a"><span class="opt-letter">A</span><span class="opt-text">Para todas las cajas del almacén sin excepción.</span></label>
-        <label class="opt"><input type="radio" name="q5" value="b"><span class="opt-letter">B</span><span class="opt-text">Solo para cajas de ropa y joyería.</span></label>
-        <label class="opt"><input type="radio" name="q5" value="c"><span class="opt-letter">C</span><span class="opt-text">Para las cajas en el almacén de tránsito 801 – Z03-Z04-Z05 provenientes de entradas o devolución de PCK.</span></label>
-        <label class="opt"><input type="radio" name="q5" value="d"><span class="opt-letter">D</span><span class="opt-text">Solo para cajas provenientes de proveedores externos.</span></label>
+        <label class="opt"><input type="radio" name="q5" value="a"><span class="opt-letter">A</span><span class="opt-text">Que el sistema tiene un error y hay que reiniciar la terminal.</span></label>
+        <label class="opt"><input type="radio" name="q5" value="b"><span class="opt-letter">B</span><span class="opt-text">Que el usuario no tiene permiso para realizar conteos.</span></label>
+        <label class="opt"><input type="radio" name="q5" value="c"><span class="opt-letter">C</span><span class="opt-text">Que hay una ubicación pendiente sin contar.</span></label>
+        <label class="opt"><input type="radio" name="q5" value="d"><span class="opt-letter">D</span><span class="opt-text">Que el usuario ya terminó todos los conteos asignados del inventario físico.</span></label>
       </div>
-      <div class="feedback">El proceso aplica para las cajas que se encuentren en el almacén de tránsito 801 – Z03-Z04-Z05 provenientes de entradas o devolución de PCK.</div>
+      <div class="feedback">El mensaje "Usuario no asignado a ningún documento activo de inventario físico" indica que el usuario ya terminó todos los conteos del inventario físico que tenía asignados.</div>
     </div>
 
     <div class="q-card" data-q="6" data-correct="b">
       <div class="q-top"><span class="q-idx">P 06</span>
-        <div class="q-text">¿Qué condición debe cumplir el UA Pallet antes de iniciar el proceso de escaneo?</div>
+        <div class="q-text">Al terminar los conteos en MZN, ¿qué debe realizar el colaborador con las etiquetas y cuáles son los responsables del proceso?</div>
       </div>
       <div class="options">
-        <label class="opt"><input type="radio" name="q6" value="a"><span class="opt-letter">A</span><span class="opt-text">Debe ser creado manualmente en el sistema SAP.</span></label>
-        <label class="opt"><input type="radio" name="q6" value="b"><span class="opt-letter">B</span><span class="opt-text">Debe estar previamente impreso.</span></label>
-        <label class="opt"><input type="radio" name="q6" value="c"><span class="opt-letter">C</span><span class="opt-text">Debe estar vacío y sin número asignado.</span></label>
-        <label class="opt"><input type="radio" name="q6" value="d"><span class="opt-letter">D</span><span class="opt-text">Debe ser autorizado por el jefe de almacén.</span></label>
+        <label class="opt"><input type="radio" name="q6" value="a"><span class="opt-letter">A</span><span class="opt-text">Entregar las etiquetas al jefe; el responsable es solo el auxiliar operativo.</span></label>
+        <label class="opt"><input type="radio" name="q6" value="b"><span class="opt-letter">B</span><span class="opt-text">Realizar un listado de las etiquetas por medio de la RF (solo MZN); los responsables son el auxiliar administrativo y el auxiliar operativo.</span></label>
+        <label class="opt"><input type="radio" name="q6" value="c"><span class="opt-letter">C</span><span class="opt-text">Destruir las etiquetas usadas; el responsable es solo el auxiliar administrativo.</span></label>
+        <label class="opt"><input type="radio" name="q6" value="d"><span class="opt-letter">D</span><span class="opt-text">Guardar las etiquetas para el siguiente conteo; el responsable es el jefe APT.</span></label>
       </div>
-      <div class="feedback">El UA Pallet asignado debe estar previamente impreso antes de iniciar el proceso de escaneo y palletizado.</div>
+      <div class="feedback">Al terminar los conteos en MZN el colaborador debe realizar un listado de las etiquetas por medio de la RF. Los responsables del proceso son el auxiliar administrativo y el auxiliar operativo.</div>
     </div>
   </section>
 
@@ -240,19 +235,7 @@ document.addEventListener("DOMContentLoaded",function(){
 </main>
 <script>
 const TOTAL=6;
-function submitQuiz(){
-  const nombre=document.getElementById('inp-nombre').value.trim();const cedula=document.getElementById('inp-cedula').value.trim();
-  if(!nombre||!cedula){alert('Por favor ingrese su nombre completo y número de cédula antes de enviar.');return;}
-  let correct=0,wrong=0;
-  document.querySelectorAll('.q-card').forEach(card=>{const qNum=card.dataset.q,correctV=card.dataset.correct;const picked=card.querySelector(`input[name="q${qNum}"]:checked`);const feedback=card.querySelector('.feedback');card.querySelectorAll('.opt').forEach(o=>{o.classList.remove('picked-correct','wrong');o.style.pointerEvents='none';});if(picked){const po=picked.closest('.opt');if(picked.value===correctV){po.classList.add('picked-correct');correct++;feedback.classList.add('show','ok');feedback.classList.remove('fail');}else{po.classList.add('wrong');wrong++;feedback.classList.add('show','fail');feedback.classList.remove('ok');card.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===correctV)o.classList.add('picked-correct');});}}else{wrong++;feedback.classList.add('show','fail');feedback.classList.remove('ok');card.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===correctV)o.classList.add('picked-correct');});}});
-  const pct=Math.round((correct/TOTAL)*100);
-  document.getElementById('r-total').textContent=TOTAL+' preguntas';document.getElementById('r-correct').textContent=correct+' correctas';document.getElementById('r-wrong').textContent=wrong+' incorrectas';document.getElementById('r-pct').textContent=pct+'%';document.getElementById('score-wrap').style.display='block';
-  document.getElementById('res-score-txt').textContent=pct+'%  —  '+(pct>=70?'✓ APROBADO':'✗ NO APROBADO');document.getElementById('res-name-txt').textContent=nombre+' · C.C. '+cedula;document.getElementById('res-msg-txt').textContent=pct>=70?'Ha superado la evaluación. ¡Buen trabajo!':'No alcanzó el puntaje mínimo (70%). Repase el instructivo IT-APT-08-V03.';
-  document.getElementById('res-ok-n').textContent=correct;document.getElementById('res-fail-n').textContent=wrong;document.getElementById('res-pct-n').textContent=pct+'%';document.getElementById('results-panel').style.display='block';document.getElementById('results-panel').scrollIntoView({behavior:'smooth'});
-  document.getElementById('inp-nombre').readOnly=true;document.getElementById('inp-cedula').readOnly=true;
-  const answers={};for(let i=1;i<=TOTAL;i++){const p=document.querySelector(`input[name="q${i}"]:checked`);answers['P'+String(i).padStart(2,'0')]=p?p.value.toUpperCase():'—';}
-  fetch('https://formspree.io/f/xojbdjgg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nombre,cedula,evaluacion:'Palletizado UA Caja',correctas:correct,incorrectas:wrong,calificacion:pct+'%',resultado:pct>=70?'APROBADO':'NO APROBADO',fecha:new Date().toLocaleString('es-CO',{timeZone:'America/Bogota'}),...answers})}).catch(err=>console.error(err));
-}
+function submitQuiz(){const nombre=document.getElementById('inp-nombre').value.trim();const cedula=document.getElementById('inp-cedula').value.trim();if(!nombre||!cedula){alert('Por favor ingrese su nombre completo y número de cédula antes de enviar.');return;}let correct=0,wrong=0;document.querySelectorAll('.q-card').forEach(card=>{const qNum=card.dataset.q,correctV=card.dataset.correct;const picked=card.querySelector(`input[name="q${qNum}"]:checked`);const feedback=card.querySelector('.feedback');card.querySelectorAll('.opt').forEach(o=>{o.classList.remove('picked-correct','wrong');o.style.pointerEvents='none';});if(picked){const po=picked.closest('.opt');if(picked.value===correctV){po.classList.add('picked-correct');correct++;feedback.classList.add('show','ok');feedback.classList.remove('fail');}else{po.classList.add('wrong');wrong++;feedback.classList.add('show','fail');feedback.classList.remove('ok');card.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===correctV)o.classList.add('picked-correct');});}}else{wrong++;feedback.classList.add('show','fail');feedback.classList.remove('ok');card.querySelectorAll('.opt').forEach(o=>{if(o.querySelector('input').value===correctV)o.classList.add('picked-correct');});}});const pct=Math.round((correct/TOTAL)*100);document.getElementById('r-total').textContent=TOTAL+' preguntas';document.getElementById('r-correct').textContent=correct+' correctas';document.getElementById('r-wrong').textContent=wrong+' incorrectas';document.getElementById('r-pct').textContent=pct+'%';document.getElementById('score-wrap').style.display='block';document.getElementById('res-score-txt').textContent=pct+'%  —  '+(pct>=70?'✓ APROBADO':'✗ NO APROBADO');document.getElementById('res-name-txt').textContent=nombre+' · C.C. '+cedula;document.getElementById('res-msg-txt').textContent=pct>=70?'Ha superado la evaluación. ¡Buen trabajo!':'No alcanzó el puntaje mínimo (70%). Repase el instructivo IT-APT-11-V03.';document.getElementById('res-ok-n').textContent=correct;document.getElementById('res-fail-n').textContent=wrong;document.getElementById('res-pct-n').textContent=pct+'%';document.getElementById('results-panel').style.display='block';document.getElementById('results-panel').scrollIntoView({behavior:'smooth'});document.getElementById('inp-nombre').readOnly=true;document.getElementById('inp-cedula').readOnly=true;const answers={};for(let i=1;i<=TOTAL;i++){const p=document.querySelector(`input[name="q${i}"]:checked`);answers['P'+String(i).padStart(2,'0')]=p?p.value.toUpperCase():'—';}fetch('https://formspree.io/f/xojbdjgg',{method:'POST',headers:{'Content-Type':'application/json','Accept':'application/json'},body:JSON.stringify({nombre,cedula,evaluacion:'Conteos Ciclicos y Periodicos',correctas:correct,incorrectas:wrong,calificacion:pct+'%',resultado:pct>=70?'APROBADO':'NO APROBADO',fecha:new Date().toLocaleString('es-CO',{timeZone:'America/Bogota'}),...answers})}).catch(err=>console.error(err));}
 function resetQuiz(){if(!confirm('¿Desea reiniciar la evaluación?'))return;document.querySelectorAll('input[type=radio]').forEach(r=>r.checked=false);document.querySelectorAll('.opt').forEach(o=>{o.classList.remove('picked-correct','wrong');o.style.pointerEvents='';});document.querySelectorAll('.feedback').forEach(f=>f.classList.remove('show','ok','fail'));document.getElementById('score-wrap').style.display='none';document.getElementById('results-panel').style.display='none';document.getElementById('inp-nombre').readOnly=false;document.getElementById('inp-cedula').readOnly=false;document.getElementById('inp-nombre').value='';document.getElementById('inp-cedula').value='';window.scrollTo({top:0,behavior:'smooth'});}
 </script>
 </body>
